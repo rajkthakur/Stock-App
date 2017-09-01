@@ -1,4 +1,4 @@
-CTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title> Live stock App </title>
@@ -7,14 +7,18 @@ CTYPE html>
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body ng-app="stockApp">
-	<div class="fluid-container" ui-route></div>
+	<div class="fluid-container">
+		<div ng-include="templates/_header.html"></div>
+		<div ng-view></div>
+	</div>
+
 <script src="app.js"></script>
 <script src="controllers/*.js"></script>
 <script src="services/*.js"></script>
 <script src="directives/*.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+<script src="https://cdnjs.cloudflar ng-include="templates/_header.html"ax/libs/angular.js/1.6.5/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-touch.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-mocks.js"></script>
@@ -22,5 +26,4 @@ CTYPE html>
 <script  src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
 </body>
 </html>
-
 

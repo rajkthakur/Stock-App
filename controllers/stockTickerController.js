@@ -1,4 +1,4 @@
-e strict';
+'use strict';
 var app = angular.module('stockApp');
 
 app.controller('stockTickerController',['$scope','stockService',stockTickerController]);

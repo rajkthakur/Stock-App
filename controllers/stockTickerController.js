@@ -42,7 +42,7 @@ var stockTickerController = function($scope,stockService){
 			var obj = {
 				'name' : name,
 				'price': price,
-				'color': 'green'
+				'color': 'white'
 			}
 			$scope.stocksData.push(obj);
 		}

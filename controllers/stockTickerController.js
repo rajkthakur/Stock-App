@@ -1,14 +1,14 @@
 'use strict';
 var app = angular.module('stockApp');
 
-app.controller('stockTickerController',['$scope','stockService',stockTickerController]);
-
-var stockTickerController = function($scope,stockService){
+app.controller('stockTickerController',['$scope','stockService',function($scope,stockService){
+        console.log('entered into controller');
 	var ws = new WebSocket("ws://stocks.mnet.website");
 	var stocksData = {}; 
 	$scope.stocksData=[];
 
 	ws.onopen = (event) => {
+                console.log('connection opened !!');
 		$scope.message = 'Loading the data ...';
 	}
 
@@ -16,7 +16,8 @@ var stockTickerController = function($scope,stockService){
 		$scope.message = 'connection is temporary unavailable';
 	}
 
-	ws.onmessage = 	(data) => {
+	ws.onmessage = 	(event) => {
+		var data = JSON.parse(event.data);
 		data.forEach(([name, price]) => {
 			stockService.updateData(name, price);
 			updateStocksData(name, price);
@@ -27,13 +28,13 @@ var stockTickerController = function($scope,stockService){
 		if(stocksData[name]){
 			for(var i=0; i<$scope.stocksData.length;i++){
 				if($scope.stocksData[i].name === name){
-					if($scope.stocksData[i]['price'] < price){
+					if($scope.stocksData[i]['price'] < price.toFixed(3)){
 						$scope.stocksData[i]['color'] = 'red';
 					}
-					if($scope.stocksData[i]['price'] > price){
+					if($scope.stocksData[i]['price'] > price.toFixed(3)){
 						$scope.stocksData[i]['color'] = 'green';
 					}
-					$scope.stocksData[i]['price'] = price;
+					$scope.stocksData[i]['price'] = price.toFixed(3);
 				}
 			}	
 		}
@@ -41,11 +42,14 @@ var stockTickerController = function($scope,stockService){
 			stocksData[name] = price;
 			var obj = {
 				'name' : name,
-				'price': price,
+				'price': price.toFixed(3),
 				'color': 'white'
 			}
 			$scope.stocksData.push(obj);
+			console.log('stocks data');
+			console.log($scope.stocksData);
+			$scope.$apply();
 		}
 	}
 
-}
+}]);

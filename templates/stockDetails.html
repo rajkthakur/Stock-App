@@ -1,26 +1,31 @@
 <h2>Stock Details</h2>
 <hr></hr>
-<div>
+<div >
 	<section>
 		<div class="panel panel-default">
   		<!-- Default panel contents -->
-  			<div class="panel-heading row">
+  			<div class="details-header row">
   				<!-- search box container-->
+          <div class="col-xs-3"><b>Ticker</b></div>
+          <div class="col-xs-3"><b>Price</b></div>
+          <div class="col-xs-1"><b>Status</b></div>
+          <div class="col-xs-3"><b>Since last updated</b></div>
+          <div class="col-xs-2"><b>Details</b></div>
   			</div>
-  			<ul>
-  				<li class="table-heading">
-  					<div class="col-xs-3">Ticker</div>
-	  				<div class="col-xs-3">Price</div>
-	  				<div class="col-xs-4">Since last updated</div>
-	  				<div class="col-xs-2">Details</div>
-  				</li>
-  				<li ng-repeat="data in stockData track by $index">
-  					<div class="col-xs-3">{{data.name}}</div>
-	  				<div class="col-xs-3" ng-style="background-color:{data.color}">{{data.price}}</div>
-	  				<div class="col-xs-4">Since last updated</div>
-	  				<div class="col-xs-2"><button></button></div>
-  				</li>
-  			</ul>
+  			<div class="stock-data-container">
+          
+  				<div class="stock-data-row row" ng-repeat="data in stocksData track by $index">
+  					<div class="col-xs-3 row-item stock-name"><b>{{data.name}}</b></div>
+	  				<div class="col-xs-3 row-item">{{data.price}}</div>
+            <div class="col-xs-1 row-item">
+                <span ng-if="data.color!=='red'" class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                <span ng-if="data.color==='red'" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            </div>
+	  				<div class="col-xs-3 row-item">Since last updated</div>
+	  				<div class="col-xs-2 row-item">
+              <button class="details-button">Click Me!</button></div>
+  				  </div>
+  			</div>
 		</div>
 	</section>
 </div>

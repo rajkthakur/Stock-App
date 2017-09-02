@@ -1,0 +1,43 @@
+.stock-data-row{
+	list-style-type: none !important;
+	border: 0.5px solid rgba(0,0,0,0.3);
+	border-bottom: 0.25px solid rgba(0,0,0,0.3);
+	border-top: 0.25px solid rgba(0,0,0,0.3);
+	padding: 5px 0 5px 0;
+	height: 50px;
+	line-height: 50px;
+	vertical-align: center;
+	font-size: 1.2em;
+}
+.row-item{
+	height: 50px;
+}
+.stock-data-container{
+	padding: 0;
+}
+.panel-heading{
+	padding: 0
+}
+.glyphicon-arrow-down{
+	color: red;
+	font-size: 1.5em;
+}
+.glyphicon-arrow-up{
+	color: green;
+	font-size: 1.5em;	
+}
+.details-button{
+	height:50px;
+	border:0;
+	box-shadow: none;
+	background-color: transparent;
+}
+.stock-name{
+	font-size: 1.5em;
+}
+.details-header{
+	background-color: #f5f5f5;
+	border-color: #ddd;
+	height:70px;
+	font-size: 1.8em;
+}

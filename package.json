@@ -1,0 +1,32 @@
+{
+  "name": "stock-app",
+  "version": "1.0.0",
+  "description": "A live stock ticker",
+  "main": "app.js",
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajkthakur/Stock-App.git"
+  },
+  "keywords": [
+    "stock"
+  ],
+  "author": "Raj Thakur",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajkthakur/Stock-App/issues"
+  },
+  "homepage": "https://github.com/rajkthakur/Stock-App#readme",
+  "dependencies": {
+    "karma": "^1.7.1"
+  },
+  "devDependencies": {
+    "jasmine": "^2.8.0",
+    "jasmine-core": "^2.8.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "requirejs": "^2.3.5"
+  }
+}

@@ -1,14 +1,14 @@
 'use strict';
 var app = angular.module('stockApp');
 
-app.controller('stockTickerController',['$scope','stockService',function($scope,stockService){
+app.controller('stockTickerController',['$scope','stockService',function stockTickerController($scope,stockService){
         console.log('entered into controller');
 	var ws = new WebSocket("ws://stocks.mnet.website");
 	var stocksData = {}; 
 	$scope.stocksData=[];
 
 	ws.onopen = (event) => {
-                console.log('connection opened !!');
+        console.log('connection opened !!');
 		$scope.message = 'Loading the data ...';
 	}
 
@@ -20,11 +20,11 @@ app.controller('stockTickerController',['$scope','stockService',function($scope,
 		var data = JSON.parse(event.data);
 		data.forEach(([name, price]) => {
 			stockService.updateData(name, price);
-			updateStocksData(name, price);
+			$scope.updateStocksData(name, price);
 		});
 	}
 
-	function updateStocksData(name, price){
+	$scope.updateStocksData = function(name, price){
 		if(stocksData[name]){
 			for(var i=0; i<$scope.stocksData.length;i++){
 				if($scope.stocksData[i].name === name){
@@ -48,7 +48,7 @@ app.controller('stockTickerController',['$scope','stockService',function($scope,
 			$scope.stocksData.push(obj);
 			console.log('stocks data');
 			console.log($scope.stocksData);
-			$scope.$apply();
+			//$scope.$apply();
 		}
 	}
 

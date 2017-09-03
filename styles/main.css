@@ -1,8 +1,8 @@
 .stock-data-row{
 	list-style-type: none !important;
-	border: 0.5px solid rgba(0,0,0,0.3);
-	border-bottom: 0.25px solid rgba(0,0,0,0.3);
-	border-top: 0.25px solid rgba(0,0,0,0.3);
+	#border: 0.5px solid rgba(0,0,0,0.3);
+	#border-bottom: 0.25px solid rgba(0,0,0,0.3);
+	#border-top: 0.25px solid rgba(0,0,0,0.3);
 	padding: 5px 0 5px 0;
 	height: 50px;
 	line-height: 50px;
@@ -11,6 +11,10 @@
 }
 .row-item{
 	height: 50px;
+	padding-left: 25px;
+}
+.content{
+	padding-top: 70px;
 }
 .stock-data-container{
 	padding: 0;
@@ -34,10 +38,34 @@
 }
 .stock-name{
 	font-size: 1.5em;
+	padding-left: 25px;
 }
 .details-header{
 	background-color: #f5f5f5;
 	border-color: #ddd;
 	height:70px;
 	font-size: 1.8em;
+}
+.navbar-inverse{
+	background-image: linear-gradient(to bottom,#de6464 0,#222 100%)!important;
+	height: 70px !important;
+	line-height: 70px;
+}
+.navbar-inverse a{
+	font-size: xx-large !important;
+	color: white !important;
+	padding-top: 25px;
+}
+
+.navbar-header{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around !important;
+}
+.navbar-header .form-group{
+	padding-top: 20px;
+	padding-left: 40px;
+}
+.navbar-header .form-control{
+	width: 400px !important;
 }

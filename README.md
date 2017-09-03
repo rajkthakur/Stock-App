@@ -1,13 +1,13 @@
-#Stock App with live status
+# Stock App with live status
 
-##Http-server
+## Http-server
 
 ```shell
 npm install -g http-server
 http-server
 ```
 
-##Test
+# Test
 ```shell
 npm test
 ```

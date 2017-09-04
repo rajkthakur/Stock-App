@@ -1,7 +1,7 @@
 # Bar
 A bar chart provides a way of showing data values represented as vertical bars. It is sometimes used to show trend data, and the comparison of multiple data sets side by side.
 
-{% chartjs %}
+{ chartjs }
 {
     "type": "bar",
     "data": {
@@ -49,7 +49,7 @@ A bar chart provides a way of showing data values represented as vertical bars. 
         }
     }
 }
-{% endchartjs %}
+{ endchartjs }
 
 ## Example Usage
 ```javascript

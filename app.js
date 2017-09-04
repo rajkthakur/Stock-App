@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('stockApp',['ngRoute']);
+var app = angular.module('stockApp',['ngRoute','chart.js']);
 
 app.config(function($routeProvider){
  $routeProvider.when('/',{

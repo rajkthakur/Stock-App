@@ -4,7 +4,7 @@
 	#border-bottom: 0.25px solid rgba(0,0,0,0.3);
 	#border-top: 0.25px solid rgba(0,0,0,0.3);
 	padding: 5px 0 5px 0;
-	height: 50px;
+	#height: 50px;
 	line-height: 50px;
 	vertical-align: center;
 	font-size: 1.2em;
@@ -69,3 +69,9 @@
 .navbar-header .form-control{
 	width: 400px !important;
 }
+.graph-container{
+	height: 700px;
+	padding: 80px;
+	transition: 1s ease-in all;
+}
+button:focus {outline:0;}

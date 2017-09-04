@@ -19,7 +19,8 @@
           <div class="col-xs-3"><b>Ticker</b></div>
           <div class="col-xs-3"><b>Price</b></div>
           <div class="col-xs-2"><b>Status</b></div>
-          <div class="col-xs-4"><b>Since last updated</b></div>
+          <div class="col-xs-3"><b>Since last updated</b></div>
+          <div class="col-xs-1"></div>
   			</div>
   			<div class="stock-data-container">
           
@@ -30,7 +31,19 @@
                 <span ng-if="data.color!=='red'" class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
                 <span ng-if="data.color==='red'" class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
             </div>
-	  				<div class="col-xs-4 row-item">{{data.elapsed}}</div>
+	  				<div class="col-xs-3 row-item">{{data.elapsed}}</div>
+            <div class="col-xs-1 row-item">
+              <button ng-click="displayGraph(data.name)" class="details-button">
+                <span ng-show="!showGraph[data.name]" class="glyphicon glyphicon glyphicon-menu-down"></span>
+                <span ng-show="showGraph[data.name]" class="glyphicon glyphicon glyphicon-menu-up"></span>
+              </button>
+            </div>
+            <div ng-show="showGraph[data.name]" class="col-xs-12 graph-container">
+              <canvas id="line" class="chart chart-line" chart-data="dummy"
+                      chart-labels="labels" chart-series="series" chart-options="options"
+                      chart-dataset-override="datasetOverride" chart-click="onClick">
+              </canvas>
+            </div>
   			</div>
 		</div>
 	</section>

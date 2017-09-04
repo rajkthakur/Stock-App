@@ -7,6 +7,8 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
 	var ws = new WebSocket("ws://stocks.mnet.website");
 	var stocksData = {}; 
 	$scope.stocksData=[];
+	$scope.chartData={};
+	$scope.showGraph = {};
 
 	ws.onopen = (event) => {
         console.log('connection opened !!');
@@ -25,7 +27,40 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
 			$scope.$apply();
 		});
 	}
-        ws.onerror = (event) =>{alert('problem occured while establishing websocket connection');}
+    ws.onerror = (event) =>{alert('problem occured while establishing websocket connection');}
+	
+    //chart settings
+    var labels = [];
+     var dummy=[];
+    for(var label=0;label<=30;label=label+1){
+    	labels.push(label);
+        dummy.push(label);
+    }
+    $scope.labels = labels;
+    $scope.dummy = dummy;
+    // setInterval(function(){
+    // 	$scope.chartData=stockService.getData();
+    // 	console.log('chart data '+JSON.stringify($scope.chartData));
+    // 	$scope.$apply();
+    // },1000);
+    $scope.displayGraph = function(name){
+    	if($scope.showGraph[name]===undefined)
+    		$scope.showGraph[name] = false;
+    	$scope.showGraph[name] = !$scope.showGraph[name];
+    	var gdataList =  stockService.getData(name);
+    	$scope.dummy = createGraphData(gdataList);
+    	Object.keys($scope.showGraph).map((e) =>{
+    		if(e!==name && $scope.showGraph[e] ){
+    			$scope.showGraph[e] = false;
+    		}
+    	});
+    	// $scope.showGraph.forEach(([name,value]) =>{
+    		
+    	// });
+    }
+
+
+
 	$scope.updateStocksData = function(name, price){
 		if(stocksData[name]){
 			for(var i=0; i<$scope.stocksData.length;i++){
@@ -55,8 +90,6 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
 				'time': Date.now()
 			}
 			$scope.stocksData.push(obj);
-			console.log('stocks data');
-			console.log($scope.stocksData);
 		}
                // $scope.$apply();
 	}
@@ -81,5 +114,19 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
 		if(seconds >= 1)
 			return "more than "+seconds+" seconds ago";
 		return time+" ms ago";
+	}
+
+	var createGraphData = (data) =>{
+		console.log('inside graph data creation ' + JSON.stringify(data));
+		var base = parseInt(data[data.length-1].time,10);
+		var check = [];
+		check.push(Math.round(data[data.length-1].price));
+		var last=1;
+		for(let index = data.length-1 ; index >=0 && last < 31;index--){
+          check.push(data[index].price);
+          last++;
+		}
+		console.log('inside graph data creation' + JSON.stringify(check));
+		return check;
 	}
 }]);

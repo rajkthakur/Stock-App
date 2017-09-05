@@ -75,4 +75,7 @@
 	padding-bottom:100px;
 	transition: 1s ease-in all;
 }
+.graph-container canvas{
+ padding-bottom: 80px !important;
+}
 button:focus {outline:0;}

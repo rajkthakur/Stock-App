@@ -3,7 +3,7 @@ var app = angular.module('stockApp');
 
 
 app.controller('stockTickerController',['$scope','stockService',function stockTickerController($scope,stockService){
-        console.log('entered into controller');
+    console.log('entered into controller');
 	var ws = new WebSocket("ws://stocks.mnet.website");
 	var stocksData = {}; 
 	$scope.stocksData=[];
@@ -38,11 +38,7 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
     }
     $scope.labels = labels;
     $scope.dummy = dummy;
-    // setInterval(function(){
-    // 	$scope.chartData=stockService.getData();
-    // 	console.log('chart data '+JSON.stringify($scope.chartData));
-    // 	$scope.$apply();
-    // },1000);
+    
     $scope.displayGraph = function(name){
     	if($scope.showGraph[name]===undefined)
     		$scope.showGraph[name] = false;
@@ -54,9 +50,7 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
     			$scope.showGraph[e] = false;
     		}
     	});
-    	// $scope.showGraph.forEach(([name,value]) =>{
-    		
-    	// });
+    	
     }
 
 
@@ -91,7 +85,7 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
 			}
 			$scope.stocksData.push(obj);
 		}
-               // $scope.$apply();
+              
 	}
 	var timeElapsed = (time) =>{
 	 	var seconds = Math.round(time/1000);
@@ -126,7 +120,6 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
           check.push(data[index].price);
           last++;
 		}
-		console.log('inside graph data creation' + JSON.stringify(check));
 		return check;
 	}
 }]);

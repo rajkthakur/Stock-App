@@ -71,7 +71,8 @@
 }
 .graph-container{
 	height: 700px;
-	padding: 80px;
+	padding: 20px;
+	padding-bottom:100px;
 	transition: 1s ease-in all;
 }
 button:focus {outline:0;}

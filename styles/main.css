@@ -70,12 +70,8 @@
 	width: 400px !important;
 }
 .graph-container{
-	height: 700px;
+	height: 750px;
 	padding: 20px;
-	padding-bottom:100px;
 	transition: 1s ease-in all;
-}
-.graph-container canvas{
- padding-bottom: 80px !important;
 }
 button:focus {outline:0;}

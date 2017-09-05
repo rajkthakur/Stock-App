@@ -34,7 +34,6 @@ app.controller('stockTickerController',['$scope','stockService',function stockTi
      var dummy=[];
     for(var label=0;label<=30;label=label+1){
     	labels.push(label);
-        dummy.push(label);
     }
     $scope.labels = labels;
     $scope.dummy = dummy;
